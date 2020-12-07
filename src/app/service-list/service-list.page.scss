@@ -1,0 +1,136 @@
+ion-header {
+  .btn-back {
+    --color: var(--ion-color-darkYellow);
+  }
+
+  ion-title {
+    font-family: 'tofini_medium';
+  }
+
+  .btn-location {
+    --color: var(--ion-color-darkYellow);
+    font-size: 20px;
+
+    ion-icon {
+      font-size: 25px;
+    }
+  }
+
+  .segment {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    ion-button {
+      --padding-start: 0;
+      --padding-end: 0;
+      height: 30px;
+      font-size: 12px;
+      width: 100px;
+      font-family: 'tofini_medium';
+      margin-bottom: 12px;
+      --background-activated: transparent;
+    }
+
+    .active {
+      color: var(--ion-color-darkYellow);
+      --border-color: var(--ion-color-darkYellow);
+    }
+
+    .deactive {
+      color: var(--ion-segment-color);
+      --border-color: var(--ion-segment-color);
+    }
+  }
+}
+
+ion-content {
+  .cetegory {
+    background: var(--ion-color-white-light);
+    text-align: center;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    margin-top: 24px;
+    margin-bottom: 22px;
+
+    h2 {
+      color: var(--ion-color-simpleDark);
+      font-size: 15px;
+      margin: 0;
+      font-family: 'tofini_medium';
+    }
+  }
+
+  .list {
+    display: flex;
+    margin-bottom: 29px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    box-shadow: 0px 0px 3px rgba(87, 87, 87, 0.41);
+
+    img {
+      height: 64px;
+      width: 91px;
+    }
+
+    .image-div {
+      height: 64px;
+      width: 91px;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 18px;
+      flex: 1;
+
+      h2 {
+        color: var(--ion-color-gray);
+        font-size: 13px;
+        font-family: 'tofini_medium';
+        margin: 0;
+        margin-bottom: 6px;
+
+        &:last-child {
+          font-size: 10px;
+          color: rgb(149, 149, 149);
+          font-family: 'tofini_regular';
+        }
+      }
+    }
+
+    .btnContainer {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      padding-right: 16px;
+
+      ion-checkbox {
+        --background-checked: var(--ion-color-darkYellow);
+        --border-color-checked: var(--ion-color-darkYellow);
+      }
+    }
+
+    &:last-child {
+      margin-top: 0px !important;
+    }
+  }
+}
+
+ion-footer {
+  h2 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    color: var(--ion-color-darkYellow);
+    font-size: 15px;
+    font-family: 'tofini_bold';
+    text-align: center;
+  }
+}

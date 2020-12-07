@@ -1,0 +1,35 @@
+ion-content {
+  .check-circle {
+    height: 50px;
+    width: 50px;
+    margin: 17px auto;
+    background: var(--ion-color-green);
+    border-radius: 50%;
+
+    ion-icon {
+      font-size: 42px;
+      padding: 4px 3px;
+      color: var(--ion-color-white);
+    }
+  }
+
+  h4 {
+    font-family: 'tofini_medium';
+    font-size: 18px;
+  }
+
+  p {
+    font-family: 'tofini_regular';
+    margin-bottom: 5px !important;
+    margin-top: 15px !important;
+    font-size: 15px;
+    color: var(--ion-color-simpleDark);
+  }
+
+  ion-button {
+    font-family: 'tofini_regular';
+    --color: var(--ion-color-darkYellow);
+    --color-activated: var(--ion-color-darkYellow);
+    --ripple-color: var(--ion-color-white);
+  }
+}

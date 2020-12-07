@@ -1,0 +1,96 @@
+ion-content {
+    --background: url('../../assets/img/starter.jpeg') top/cover fixed;
+
+    .main-container {
+        height: 100%;
+        width: 100%;
+        padding: 0px 32px 0px 31px;
+        background: linear-gradient(180deg, transparent 25%, #000000 130%);
+
+        .bottom-container {
+            bottom: 0px;
+            position: absolute;
+            right: 32px;
+            left: 31px;
+
+            .logo-section {
+                height: 73px;
+                width: 73px;
+                border-radius: 17px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 17px;
+                }
+            }
+
+            .title {
+                margin-top: 20px;
+                margin-bottom: 0px;
+                font-family: 'tofini_regular';
+                height: 65px;
+                font-size: 18px;
+                color: var(--ion-color-white);
+            }
+
+            .btn-social-login {
+                --color: var(--ion-color-white);
+                height: 44px;
+                margin: 0px;
+                font-size: 15px;
+                --box-shadow: none;
+                text-transform: inherit;
+
+                img {
+                    position: absolute;
+                    left: 26px;
+                }
+            }
+
+            .email {
+                --background: var(--ion-color-gradiant);
+                margin-top: 40px;
+                font-family: 'tofini_regular';
+
+                img {
+                    height: 16px;
+                }
+            }
+
+            .facebook {
+                --background: var(--ion-colo-blue);
+                margin-top: 24px;
+                font-family: 'tofini_regular';
+
+                img {
+                    left: 29px;
+                }
+            }
+
+            .tel {
+                --background: var(--ion-colo-blue);
+                margin-top: 24px;
+                font-family: 'tofini_regular';
+
+                img {
+                    height: 14px;
+                }
+            }
+
+            p {
+                font-size: 14px;
+                margin: 40px 0px 30px 0px;
+                color: var(--ion-color-white);
+                font-family: 'tofini_regular';
+
+                .btn-signIn {
+                    color: var(--ion-color-orange);
+                    font-family: 'tofini_medium';
+                }
+            }
+
+
+        }
+    }
+}

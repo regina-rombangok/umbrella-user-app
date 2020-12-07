@@ -1,0 +1,25 @@
+<ion-content>
+  <div class="main-container">
+    <div class="bottom-container">
+      <div class="logo-section">
+        <img src="../../assets/starter/noun_barbershop_79139.svg" alt="">
+      </div>
+      <h2 class="title">Welcome to the On-Demand Services for Users and Service Beauticians</h2>
+
+      <div uk-scrollspy="target: > ion-button; cls: uk-animation-fade; delay: 300">
+
+        <ion-button uk-scrollspy-class="uk-animation-slide-left" (click)="signInEmail()" class="btn-social-login email"
+          mode="md" expand="full" shape="round" fill="solid">
+          <img src="../../assets/starter/envelope.svg" alt="">
+          Sign In with&nbsp;<strong>Email</strong>
+        </ion-button>
+
+        <ion-button uk-scrollspy-class="uk-animation-slide-right" (click)="signInPhone()" class="btn-social-login tel"
+          mode="md" expand="full" shape="round" fill="solid">
+          <img src="../../assets/starter/telephone-handle-silhouette.svg" alt="">
+          Sign In with&nbsp;<strong>Mobile</strong>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,124 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+
+            <ion-button icon-only mode="md">
+
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Order Detail
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item lines="none">
+        <ion-avatar slot="start">
+            <img [src]="
+          orderDetail?.freelancerData?.image
+            ? orderDetail?.freelancerData?.image
+            : 'http://placehold.it/60x60'
+        " alt="" onerror="this.onerror=null;this.src='http://placehold.it/60x60'" />
+        </ion-avatar>
+        <ion-label>
+            <h3 class="freelancer-name">{{ orderDetail?.freelancerData?.name }}</h3>
+            <div class="rating-bar">
+                <ion-icon name="md-star" [ngClass]="{ active: orderDetail?.everageStart >= 1 }"></ion-icon>
+                <ion-icon name="md-star" [ngClass]="{ active: orderDetail?.everageStart >= 2 }"></ion-icon>
+                <ion-icon name="md-star" [ngClass]="{ active: orderDetail?.everageStart >= 3 }"></ion-icon>
+                <ion-icon name="md-star" [ngClass]="{ active: orderDetail?.everageStart >= 4 }"></ion-icon>
+                <ion-icon name="md-star" [ngClass]="{ active: orderDetail?.everageStart == 5 }"></ion-icon>
+            </div>
+        </ion-label>
+    </ion-item>
+    <p class="ion-text-uppercase ion-text-center thans-label">
+        Thanks for using service
+    </p>
+    <p class="ion-text-center serviceid-label">
+        Booking# {{ orderDetail?.orderId }}
+    </p>
+    <div class="item-section">
+        <p class="ion-text-uppercase info-title">Job Request Date</p>
+        <p class="info">
+            {{ orderDetail?.timeLine?.requestedDate?.toDate() | date: "medium" }}
+        </p>
+    </div>
+    <div class="item-section">
+        <p class="ion-text-uppercase info-title">job Location</p>
+        <p class="info">{{ orderDetail?.address }}</p>
+    </div>
+    <div class="item-section">
+        <p class="ion-text-uppercase info-title">Payment Method</p>
+        <p class="info" *ngIf="orderDetail?.payMethod == 'COH'">Cash</p>
+        <p class="info" *ngIf="orderDetail?.payMethod == 'Paypal'">Paypal</p>
+    </div>
+    <div class="item-section">
+        <p class="ion-text-uppercase info-title">Payment Status</p>
+        <p class="info" *ngIf="orderDetail?.payStatus == 1">Complete</p>
+        <p class="info" *ngIf="orderDetail?.payStatus == 0">Pending</p>
+    </div>
+    <div class="item-section">
+        <p class="ion-text-uppercase info-title">Charges</p>
+    </div>
+    <ion-card>
+        <ion-card-content>
+            <h3 class="fare-title ion-text-center">Beauty Services</h3>
+            <div class="services">
+                <p class="service-list" *ngFor="let service of orderDetail?.services">
+                    {{ service.name | slice:0:20 }} <span *ngIf="service?.name.length > 20">...</span>&nbsp;
+                    <span *ngIf="service?.serviceType == 'individual'">(Adults)</span>
+                    <span *ngIf="service?.serviceType == 'student'">(Teens)</span>
+                    <span *ngIf="service?.serviceType == 'kiddie'">(Kiddie)</span> X {{ service.qty }}
+                    <span class="ion-float-right">{{
+              0 | currency: currenctyType:"symbol-narrow":".2-2" | slice: 0:1
+            }}
+                        {{ service.price }}</span>
+                </p>
+                <p class="service-list" *ngIf="orderDetail?.additionalCharges > 0">
+                    Additional Charge
+                    <span class="ion-float-right">+ {{
+              0 | currency: currenctyType:"symbol-narrow":".2-2" | slice: 0:1
+            }}
+                        {{ orderDetail?.additionalCharges }}</span>
+                </p>
+                <p class="service-list" *ngIf="orderDetail?.couponData">
+                    Discount
+                    <span class="ion-float-right">- {{
+              0 | currency: currenctyType:"symbol-narrow":".2-2" | slice: 0:1
+            }}
+                        {{ orderDetail?.discount }}</span>
+                </p>
+                <p class="tottle-border">
+                    Subtotal
+                    <span class="ion-float-right"> {{
+              0 | currency: currenctyType:"symbol-narrow":".2-2" | slice: 0:1
+            }}
+                        {{ orderDetail?.maintotal }}</span>
+                </p>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="
+      orderDetail?.requestStatus == 7 && orderDetail?.rating?.user == false
+    ">
+        <ion-card-content>
+            <p class="how-was">How's your job ? Rate Beautician</p>
+            <div class="rating-bar">
+                <ion-icon name="md-star" [ngClass]="{ active: activeStar >= 1 }" (click)="setStarValue(1)"></ion-icon>
+                <ion-icon name="md-star" [ngClass]="{ active: activeStar >= 2 }" (click)="setStarValue(2)"></ion-icon>
+                <ion-icon name="md-star" [ngClass]="{ active: activeStar >= 3 }" (click)="setStarValue(3)"></ion-icon>
+                <ion-icon name="md-star" [ngClass]="{ active: activeStar >= 4 }" (click)="setStarValue(4)"></ion-icon>
+                <ion-icon name="md-star" [ngClass]="{ active: activeStar == 5 }" (click)="setStarValue(5)"></ion-icon>
+            </div>
+
+            <ion-textarea [(ngModel)]="feedback" placeholder="Provide your feedback."></ion-textarea>
+        </ion-card-content>
+    </ion-card>
+    <ion-button *ngIf="
+      orderDetail?.requestStatus == 7 && orderDetail?.rating?.user == false
+    " class="btn-Rate ion-text-capitalize" mode="md" expand="full" shape="round" fill="solid" (click)="giveRating()">
+        Rate
+    </ion-button>
+</ion-content>

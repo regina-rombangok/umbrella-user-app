@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button fill="clear" mode="md">
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Edit Profile</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="profile-div">
+        <img (click)="presentActionSheet()" class="imgPlaceholder" src="{{data?.image}}">
+    </div>
+    <form #f="ngForm">
+        <ion-input name="userName" [(ngModel)]="data.name" placeholder="Name" type="text" required></ion-input>
+        <span class="err" *ngIf="data?.name_err == true">Name is requried*</span>
+
+        <ion-input name="surname" [(ngModel)]="data.surname" placeholder="Surname" type="text" required></ion-input>
+
+        <ion-input disabled="true" placeholder="Email address" [(ngModel)]="data.email" name="email" type="text"
+            required>
+        </ion-input>
+
+        <ion-input placeholder="Address" name="address" type="text" [(ngModel)]="data.address"
+            (ionInput)="autoAddress($event.target.value)" required></ion-input>
+        <div *ngIf="autocompleteItems.length > 0">
+            <ion-item *ngFor="let item of autocompleteItems" tappable (click)="chooseItem(item)">
+                {{ item.description }}
+            </ion-item>
+        </div>
+        <span class="err" *ngIf="data?.address_err">address is requried*</span>
+
+        <ion-input placeholder="Room number" [(ngModel)]="data.roomNo" name="roomNo" type="text" required></ion-input>
+
+        <ion-datetime class="date_picker" [(ngModel)]="data.age" name="dateOfBirth" placeholder="Date of Birth"
+            displayFormat="YYYY-MM-DD" required></ion-datetime>
+        <span class="err" *ngIf="data?.dateOfBirth_err">Birthdate is requried*</span>
+
+        <ion-input placeholder="Mobile number" [(ngModel)]="data.mobile_no" name="mobile" type="text" required>
+        </ion-input>
+        <span class="err" *ngIf="data?.mobile_no_err">Mobile no is requried*</span>
+
+        <ion-button class="btn-SignUp" mode="md" [disabled]="!f.valid" expand="full" shape="round" fill="solid"
+            (click)="signUp()">
+            Update
+        </ion-button>
+    </form>
+
+</ion-content>

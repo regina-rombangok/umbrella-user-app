@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="content-section">
+    <h1 class="ion-text-center title">Welcome Back</h1>
+    <p class="ion-text-center">Login to your account</p>
+    <form #f="ngForm">
+      <ion-input [(ngModel)]="data.email" required class="email-input" name="email" placeholder="Email" type="email">
+      </ion-input>
+      <ion-input [(ngModel)]="data.password" required placeholder="Password" name="password" type="password">
+      </ion-input>
+      <ion-button (click)="signIn()" [disabled]="!f.valid" class="btn-login ion-text-capitalize" mode="md" expand="full"
+        shape="round" fill="solid">
+        Login
+      </ion-button>
+    </form>
+    <ion-button class="btn-forgot" expand="full" fill="clear" (click)="forgotPassword()">
+      Forgot your password?
+    </ion-button>
+
+  </div>
+</ion-content>

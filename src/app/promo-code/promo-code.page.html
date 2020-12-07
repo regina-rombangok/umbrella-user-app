@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button icon-only>
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Coupon</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p *ngIf="coupnList?.length == 0" class="ion-text-center">No data found.</p>
+    <ion-item lines="none" *ngFor="let coupn of coupnList">
+        <div class="off-div" slot="start">
+            <h2>{{coupn?.percentage}}%</h2>
+            <p class="ion-text-center">Off</p>
+        </div>
+        <ion-label>
+            <h2 class="title">{{coupn?.title}}</h2>
+            <p class="code">{{coupn?.code}}
+                <ion-button mode="md" fill="clear" size="small" class="ion-float-right" (click)="copyCode(coupn?.code)">
+                    Copy
+                </ion-button>
+            </p>
+        </ion-label>
+    </ion-item>
+</ion-content>

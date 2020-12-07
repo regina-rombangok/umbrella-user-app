@@ -1,0 +1,125 @@
+ion-header {
+
+  .btn-back,
+  .btn-location {
+    --color: var(--ion-color-darkYellow);
+  }
+
+  .active {
+    --background: var(--ion-color-darkYellow);
+    --background-activated: var(--ion-color-darkYellow);
+    --color: var(--ion-color-white) !important;
+
+    ion-icon {
+      color: var(--ion-color-white) !important;
+    }
+  }
+}
+
+ion-content {
+  .list-section {
+    ion-item {
+      border-radius: 0px;
+      box-shadow: none;
+      border: none;
+      margin-bottom: 0px;
+
+      ion-avatar {
+        width: 50px;
+        height: 50px;
+
+        img {
+          height: 100% !important;
+          width: 100%;
+        }
+      }
+
+      h2 {
+        font-size: 17px;
+        font-family: 'tofini_medium';
+      }
+
+      .star-count {
+        color: var(--ion-color-darkYellow);
+        font-family: 'tofini_regular';
+      }
+
+      .star-icon {
+        font-size: 14px;
+        margin-left: 3px;
+        color: var(--ion-color-darkYellow);
+        font-family: 'tofini_regular';
+      }
+
+      .review-length {
+        font-size: 13px;
+        color: var(--ion-color-simpleDark);
+        font-family: 'tofini_regular';
+      }
+
+      .km-label {
+        font-size: 13px;
+        font-family: 'tofini_regular';
+      }
+    }
+  }
+
+  .map-section {
+    height: 100%;
+    width: 100%;
+
+    .employee-detail {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      padding-top: 8px;
+      background: var(--ion-color-white);
+
+      ion-item {
+        ion-avatar {
+          width: 50px;
+          height: 50px;
+        }
+
+        ion-label {
+          margin-bottom: 0px;
+        }
+
+        .star-count {
+          color: var(--ion-color-darkYellow);
+          font-family: 'tofini_regular';
+        }
+
+        .star-icon {
+          font-size: 14px;
+          margin-left: 3px;
+          color: var(--ion-color-darkYellow);
+          font-family: 'tofini_regular';
+        }
+
+        .review-length {
+          font-size: 13px;
+          color: var(--ion-color-simpleDark);
+          font-family: 'tofini_regular';
+        }
+
+        .btn-more {
+          --color: var(--ion-color-white);
+          font-size: 13px;
+          --box-shadow: none;
+          font-family: 'tofini_regular';
+          --background: var(--ion-color-gradiant);
+        }
+      }
+
+      .btn-hide {
+        --ripple-color: var(--ion-color-white);
+        margin: 0px 0px 5px;
+
+        ion-icon {
+          color: var(--ion-color-darkYellow);
+        }
+      }
+    }
+  }
+}

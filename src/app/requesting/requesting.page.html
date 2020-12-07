@@ -1,0 +1,20 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>Requesting</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="retry-div" *ngIf="requestData?.requestStatus==8">
+    <p class="ion-no-margin ion-text-center">Beautician is not able to take your request.Please cancel request and try
+      again OR
+      retry.</p>
+    <ion-button mode="md" expand="block" fill="clear" (click)="doRetry()">Retry</ion-button>
+  </div>
+  <img src="../../assets/img/timeline.gif" alt="">
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="doClose()">
+      <ion-icon name="md-close"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

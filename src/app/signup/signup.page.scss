@@ -1,0 +1,70 @@
+ion-content {
+  --padding-end: 24px;
+  --padding-start: 24px;
+  --padding-top: 24px;
+
+  .imgPlaceholder {
+    height: 113px;
+    margin: auto;
+    display: block;
+    border-radius: 50%;
+  }
+  .err {
+    margin: 0;
+    font-size: 11px;
+    text-align: center;
+    color: red;
+    margin-top: 4px;
+    font-family: 'tofini_medium';
+  }
+  ion-input,
+  .date_picker {
+    --background: var(--ion-input-back);
+    height: 44px;
+    border-radius: 22px;
+    --padding-start: 24px;
+    --padding-top: 16px;
+    --padding-bottom: 13px;
+    font-family: 'tofini_regular';
+    font-size: 15px;
+    margin-top: 20px;
+    --placeholder-color: var(--ion-placeholder-color);
+  }
+  ion-datetime {
+    background: var(--ion-input-back);
+    font-size: 15px;
+    --padding-top: 13px;
+    font-family: 'tofini_regular';
+    --placeholder-color: var(--ion-placeholder-color);
+  }
+  .btn-SignUp {
+    --color: var(--ion-color-white);
+    height: 44px;
+    margin: 42px 8px 0px 8px;
+    font-size: 15px;
+    --box-shadow: none;
+    font-family: 'tofini_regular';
+    --background: var(--ion-color-gradiant);
+    margin-top: 40px;
+    text-transform: inherit;
+  }
+  .terms-text {
+    font-size: 11px;
+    color: var(--ion-color-lightGray);
+    font-family: 'tofini_regular';
+    margin: 16px 0px 0px 0px;
+    .light-text {
+      color: var(--ion-color-black);
+      font-family: 'tofini_medium';
+    }
+  }
+  .account-text {
+    margin-top: 42px;
+    font-family: 'tofini_regular';
+    color: var(--ion-color-gray);
+    font-size: 14px;
+    a {
+      color: var(--ion-color-darkYellow);
+    }
+  }
+}

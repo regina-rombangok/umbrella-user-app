@@ -1,0 +1,125 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button icon-only>
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            My Orders
+        </ion-title>
+    </ion-toolbar>
+
+    <div class="segment">
+        <ion-button
+            [class]="segmentState == 1 ? 'active ios button button-block button-round button-outline ion-activatable ion-focusable hydrated' : 'deactive ios button button-block button-round button-outline ion-activatable ion-focusable hydrated'"
+            (click)="segmentState = 1" shape="round" expand="block" mode="ios" fill="outline">
+            CURRENT
+        </ion-button>
+        <ion-button
+            [class]="segmentState == 2 ? 'active ios button button-block button-round button-outline ion-activatable ion-focusable hydrated' : 'deactive ios button button-block button-round button-outline ion-activatable ion-focusable hydrated'"
+            (click)="segmentState = 2" shape="round" expand="block" mode="ios" fill="outline">
+            COMPLETE
+        </ion-button>
+        <ion-button
+            [class]="segmentState == 3 ? 'active ios button button-block button-round button-outline ion-activatable ion-focusable hydrated' : 'deactive ios button button-block button-round button-outline ion-activatable ion-focusable hydrated'"
+            (click)="segmentState = 3" shape="round" expand="block" mode="ios" fill="outline">
+            CANCEL
+        </ion-button>
+    </div>
+
+</ion-header>
+
+<ion-content>
+
+    <ng-container *ngIf="segmentState == 1">
+        <p class="ion-text-center" *ngIf="statusData.pending == 0">No data found.</p>
+        <ng-container *ngFor="let i of orderList">
+            <div *ngIf="i?.requestStatus < 7" class="card" (click)="viewDetailOrder(i.id)">
+                <div class="header">
+                    <div class="row">
+                        <h2>{{i?.orderId}}</h2>
+                        <p>{{i?.timeLine?.requestedDate?.toDate() | date:'medium'}}</p>
+                    </div>
+                    <h2>{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{i?.mainTotal}}</h2>
+                </div>
+                <div class="content">
+                    <div *ngFor="let j of i?.services" class="list">
+                        <p>{{j?.name}} <span *ngIf="j?.serviceType=='individual'">(Adults)</span>
+                            <span *ngIf="j?.serviceType=='student'">(Teens)</span>
+                            <span *ngIf="j?.serviceType=='kiddie'">(Kiddie)</span></p>
+                        <p>{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{j?.price}}</p>
+
+                    </div>
+                </div>
+                <div class="footer">
+                    <p class="ion-text-center">{{i.address}}</p>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="segmentState == 2">
+        <p class="ion-text-center" *ngIf="statusData.complete == 0">No data found.</p>
+        <ng-container *ngFor="let i of orderList">
+            <div *ngIf="i?.requestStatus == 7" class="card" (click)="viewDetailOrder(i.id)">
+                <div class="header success">
+                    <div class="row">
+                        <h2>{{i?.orderId}}</h2>
+                        <p>{{i?.timeLine?.jobCompleteDate?.toDate() | date:'medium'}}</p>
+                    </div>
+                    <h2>{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{i?.mainTotal}}</h2>
+                </div>
+                <div class="content">
+                    <div *ngFor="let j of i?.services" class="list">
+                        <p>{{j?.name}} <span *ngIf="j?.serviceType=='individual'">(Adults)</span>
+                            <span *ngIf="j?.serviceType=='student'">(Teens)</span>
+                            <span *ngIf="j?.serviceType=='kiddie'">(Kiddie)</span></p>
+                        <p>{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{j?.price}}</p>
+                    </div>
+                </div>
+                <div class="footer success">
+                    <p class="ion-text-center">{{i.address}}</p>
+
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="segmentState == 3">
+        <p class="ion-text-center" *ngIf="statusData.cancel == 0">No data found</p>
+        <ng-container *ngFor="let i of orderList">
+            <div *ngIf="i?.requestStatus == 9" class="card" (click)="viewDetailOrder(i.id)">
+                <div class="header danger">
+                    <div class="row">
+                        <h2>{{i?.orderId}}</h2>
+                        <p>Date {{i?.timeLine?.jobCompleteDate.toDate() | date}}</p>
+                    </div>
+                    <h2>{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{i?.mainTotal}}</h2>
+                </div>
+                <div class="content">
+                    <div *ngFor="let j of i?.services" class="list">
+                        <p>{{i?.name}}</p>
+                        <p>{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{i?.price}}</p>
+                    </div>
+                </div>
+                <div class="footer danger">
+                    <p>Bad Work</p>
+                    <div class="rating_bar">
+                        <ion-icon [ngStyle]="{'color': services.length == 4 ? '#FFD21E' : '#FFFFFF'}" name="md-star">
+                        </ion-icon>
+                        <ion-icon [ngStyle]="{'color': services.length != 4 ? '#FFD21E' : '#FFFFFF'}" name="md-star">
+                        </ion-icon>
+                        <ion-icon [ngStyle]="{'color': services.length != 4 ? '#FFD21E' : '#FFFFFF'}" name="md-star">
+                        </ion-icon>
+                        <ion-icon [ngStyle]="{'color': services.length != 4 ? '#FFD21E' : '#FFFFFF'}" name="md-star">
+                        </ion-icon>
+                        <ion-icon [ngStyle]="{'color': services.length != 4 ? '#FFD21E' : '#FFFFFF'}" name="md-star">
+                        </ion-icon>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+
+</ion-content>

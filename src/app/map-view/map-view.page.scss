@@ -1,0 +1,148 @@
+ion-header {
+  ion-buttons {
+    ion-button {
+      ion-icon {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+ion-footer {
+  padding-top: 14px;
+  padding-bottom: 5px;
+
+  .segment {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    ion-button {
+      --padding-start: 0;
+      --padding-end: 0;
+      height: 30px;
+      font-size: 12px;
+      width: 95px;
+      font-family: 'lato-bold';
+      margin-bottom: 12px;
+      --background-activated: transparent;
+    }
+
+    .active {
+      color: #d32c29;
+      --border-color: #d32c29;
+    }
+
+    .deactive {
+      color: rgba(117, 117, 117, 1);
+      --border-color: rgba(117, 117, 117, 1);
+    }
+  }
+}
+
+ion-content {
+  .salonList-row {
+    position: absolute;
+    bottom: 8px;
+    left: 5px;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .salon-section {
+      background: var(--ion-color-white);
+      border-radius: 10px;
+      box-shadow: 0px 3px 8px #dbdbdb;
+      border: 1px solid #cccccc;
+
+      .salon-image {
+        height: 100px;
+        width: 100%;
+        border-radius: 10px 10px 0px 0px;
+
+        img {
+          border-radius: 10px 10px 0px 0px;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .salon-detail {
+        padding-left: 14px;
+        display: flow-root;
+
+        .salon-name {
+          font-size: 15px;
+          font-family: 'tofini_medium';
+          margin-top: 6px;
+          margin-bottom: 5px;
+          padding-right: 11px;
+
+          .start-span {
+            font-size: 13px;
+            color: var(--ion-color-simpleDark);
+
+            img {
+              margin-right: 5px;
+            }
+          }
+        }
+
+        .salon-address {
+          font-size: 12px;
+          font-family: 'tofini_regular';
+          margin-top: 0px;
+          margin-bottom: 1px;
+          color: var(--ion-color-simpleDark);
+          padding-right: 11px;
+        }
+
+        .btn-book {
+          font-size: 13px;
+          font-family: 'tofini_medium';
+          text-transform: initial;
+          --box-shadow: none;
+          height: 30px;
+          margin: 0px;
+          --border-radius: 8px 0px 8px 0px;
+          --padding-start: 17px;
+          --padding-end: 15px;
+        }
+      }
+    }
+  }
+
+  ion-fab {
+    ion-fab-button {
+      ion-icon {
+        font-size: 28px;
+      }
+    }
+  }
+
+  .map-button {
+    position: absolute;
+    top: 18px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: rgba(#979797, 0.2);
+
+    ion-icon {
+      font-size: 24px;
+    }
+
+    .info-icon {
+      padding: 10px;
+      border-bottom: 1px solid;
+      border-color: rgba(#979797, 0.2);
+    }
+
+    .location {
+      padding: 10px;
+    }
+  }
+}

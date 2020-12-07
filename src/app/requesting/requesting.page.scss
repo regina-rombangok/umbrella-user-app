@@ -1,0 +1,33 @@
+ion-header {
+  ion-title {
+    font-family: 'tofini_medium';
+  }
+}
+ion-content {
+  --background: rgba(0, 0, 0, 0.3);
+  .retry-div {
+    background: #fff;
+    p {
+      font-size: 15px;
+      font-family: 'tofini_regular';
+    }
+    ion-col:last-child {
+      margin: auto;
+    }
+    ion-button {
+      --color: var(--ion-color-darkYellow);
+      --color-activated: var(--ion-color-darkYellow);
+      font-family: 'tofini_regular';
+    }
+  }
+  img {
+    transform: translateY(-50%);
+    top: 50%;
+    position: absolute;
+  }
+  ion-fab {
+    ion-fab-button {
+      --background: var(--ion-color-gradiant);
+    }
+  }
+}

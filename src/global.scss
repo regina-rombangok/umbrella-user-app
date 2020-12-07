@@ -1,0 +1,143 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import '~@ionic/angular/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+ion-header {
+  ion-toolbar {
+    ion-title {
+      color: var(--ion-color-darkYellow);
+      font-size: 17px;
+      font-family: 'tofini_medium';
+      text-transform: uppercase;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+
+    ion-button {
+      ion-icon {
+        color: var(--ion-color-darkYellow);
+      }
+    }
+  }
+}
+ion-toggle {
+  height: 15px;
+  width: 25px;
+  .toggle-inner {
+    height: 11px;
+    width: 11px;
+  }
+}
+[item-input] {
+  margin-bottom: 27px;
+  border: 1px solid #e0e0e0;
+  border-radius: 50px;
+  box-shadow: 0px 0px 3px #e0e0e0;
+  --padding-start: 20px;
+  ion-input {
+    font-size: 15px;
+    font-family: 'lato-regular';
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+  ion-icon {
+    font-size: 18px;
+  }
+  img {
+    height: 16px;
+    margin: 0;
+    margin-right: 10px;
+  }
+}
+.requesting-modal {
+  --background: transparent;
+}
+.confirm-alery {
+  .alert-wrapper {
+    .alert-head {
+      padding-top: 0px;
+    }
+    .alert-message {
+      color: black;
+      font-family: 'tofini_regular';
+      padding-bottom: 0px;
+    }
+  }
+}
+.accept-modal {
+  --height: 250px;
+  --max-height: 250px;
+  padding: 0px 20px;
+  --background: #04040f;
+}
+.finished-modal {
+  --height: 196px;
+  --max-height: 196px;
+  padding: 0px 28px;
+  --background: #04040f;
+}
+.promocode-modal {
+  --height: 235px;
+  --max-height: 235px;
+  padding: 0px 33px;
+  --background: #04040f;
+}
+
+.enableLocation-modal {
+  --height: 340px;
+  --max-height: 340px;
+  padding: 0px 20px;
+  --border-radius: 24px;
+  --background: #04040f;
+  .modal-wrapper {
+    transform: translateY(39px) !important;
+  }
+}
+introjs-helperLayer {
+  background: transparent !important;
+}
+address,
+dl,
+fieldset,
+figure,
+ol,
+p,
+pre,
+ul {
+  margin: 10px 0 10px 0;
+}
+.my-modal {
+  .modal-wrapper {
+    --background: transparent;
+  }
+}

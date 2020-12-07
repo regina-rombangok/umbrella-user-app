@@ -1,0 +1,28 @@
+ion-header {
+    ion-button {
+        --color: var(--ion-color-darkYellow);
+    }
+}
+
+ion-content {
+    ion-item {
+        border-radius: 0px !important;
+        margin-bottom: 0px !important;
+        border: none;
+        box-shadow: none;
+
+        ion-icon {
+            font-size: 32px;
+            color: black;
+            margin-right: 16px;
+        }
+    }
+
+    .recent-address {
+        ion-icon {
+            font-size: 22px;
+            color: var(--ion-color-simpleDark);
+            margin-right: 16px;
+        }
+    }
+}

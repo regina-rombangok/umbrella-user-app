@@ -1,0 +1,138 @@
+ion-content {
+  ion-item {
+    --background: var(--ion-searchBack-color);
+
+    ion-avatar {
+      width: 50px;
+      height: 50px;
+      border: 1px solid bar(--ion-color-darkYellow);
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .freelancer-name {
+      font-family: 'tofini_medium';
+    }
+
+    .rating-bar {
+      width: fit-content;
+
+      ion-icon {
+        color: var(--ion-color-simpleDark);
+        margin-right: 3px;
+        font-size: 16px;
+
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+
+      .active {
+        color: var(--ion-color-golden);
+      }
+    }
+  }
+
+  .thans-label {
+    color: var(--ion-color-darkYellow);
+    font-family: 'tofini_medium';
+    margin-top: 6px;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .serviceid-label {
+    font-family: 'tofini_bold';
+    margin-top: 8px;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  .item-section {
+    padding-left: 10px;
+
+    .info-title {
+      font-family: 'tofini_regular';
+      font-size: 14px;
+      color: var(--ion-color-simpleDark);
+      margin-bottom: 0px;
+    }
+
+    .info {
+      font-family: 'tofini_regular';
+      font-size: 14px;
+      margin-top: 6px;
+    }
+  }
+
+  ion-card {
+    --background: var(--ion-color-white);
+    border-radius: 8px;
+    margin-bottom: 20px;
+
+    ion-card-content {
+      color: var(--ion-color-black);
+      font-family: 'tofini_regular';
+
+      .fare-title {
+        font-family: 'tofini_medium';
+      }
+
+      .services {
+        margin-top: 10px;
+
+        .service-list {
+          font-family: 'tofini_regular';
+          padding: 5px 0px;
+        }
+
+        .tottle-border {
+          padding: 5px 0px 0;
+          border-top: 1px solid var(--ion-border-color);
+        }
+      }
+
+      .how-was {
+        font-family: 'tofini_regular';
+      }
+
+      .rating-bar {
+        width: fit-content;
+
+        ion-icon {
+          color: var(--ion-color-simpleDark);
+          margin-right: 3px;
+          font-size: 35px;
+
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+
+        .active {
+          color: var(--ion-color-golden);
+        }
+      }
+
+      ion-textarea {
+        font-family: 'tofini_regular';
+        margin-top: 0px;
+        --padding-bottom: 0px;
+        --padding-start: 5px;
+      }
+    }
+  }
+
+  .btn-Rate {
+    --color: var(--ion-color-white);
+    height: 44px;
+    margin: 4vh 8px 10px 8px;
+    font-size: 16px;
+    --box-shadow: none;
+    font-family: 'tofini_regular';
+    --background: var(--ion-color-gradiant);
+  }
+}

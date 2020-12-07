@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button icon-only>
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+
+            </ion-button>
+        </ion-buttons>
+        <ion-title text-center>
+            FAQ's
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ul uk-accordion>
+        <li *ngFor="let i of data">
+            <a class="uk-accordion-title" href="#">{{i?.question}}</a>
+            <div class="uk-accordion-content">
+                <p>{{i?.answer}}</p>
+            </div>
+        </li>
+    </ul>
+</ion-content>

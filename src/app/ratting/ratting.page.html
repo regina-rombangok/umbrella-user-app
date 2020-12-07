@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()" icon-only>
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Ratting</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="total-section">
+    <p class="fare-label ion-text-center">Service Total</p>
+    <h1 class="ion-text-center amount-label">{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }}
+      {{mainTotal}}</h1>
+    <p class="date-label ion-no-margin">JOB REQUEST DATE</p>
+    <p class="ion-no-margin date">{{bookingData?.timeLine?.requestedDate.toDate() | date:'medium'}}</p>
+  </div>
+  <p class="ion-text-center beaty-servcie-title">Beauty Services</p>
+  <ion-card>
+    <ion-card-content>
+      {{bookingData?.address}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <h3 class="fare-title" (click)="serviceDetail = !serviceDetail">Fare Details
+        <ion-icon *ngIf="!serviceDetail" class="arrow" name="ios-arrow-down"></ion-icon>
+        <ion-icon *ngIf="serviceDetail" class="arrow" name="ios-arrow-up"></ion-icon>
+      </h3>
+      <div class="services" *ngIf="serviceDetail">
+        <p class="service-list" *ngFor="let service of bookingData.services">{{service?.name | slice:0:20}}
+          <span *ngIf="service?.name.length > 20">...</span>&nbsp;
+          <span *ngIf="service?.serviceType=='individual'">(Adults)</span>
+          <span *ngIf="service?.serviceType=='student'">(Teens)</span>
+          <span *ngIf="service?.serviceType=='kiddie'">(Kiddie)</span>
+          X {{service.qty}}
+          <span class="ion-float-right">{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }}
+            {{service?.price}}</span>
+        </p>
+        <p class="service-list" *ngIf="bookingData.additionalCharges > '0'">Additional Charge
+          <span class="ion-float-right">+ {{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }}
+            {{bookingData?.additionalCharges}}</span>
+        </p>
+        <p class="service-list" *ngIf="bookingData?.couponData">Discount
+          <span class="ion-float-right">- {{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }}
+            {{bookingData?.discount}}</span>
+        </p>
+
+        <p>Subtotal <span class="ion-float-right">{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }}
+            {{serviceTotal}}</span></p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <p class="how-was">How was you job ?</p>
+      <div class="rating-bar">
+        <ion-icon name="md-star" [ngClass]="{'active': activeStar >= 1}" (click)="setStarValue(1)"></ion-icon>
+        <ion-icon name="md-star" [ngClass]="{'active': activeStar >= 2}" (click)="setStarValue(2)"></ion-icon>
+        <ion-icon name="md-star" [ngClass]="{'active': activeStar >= 3}" (click)="setStarValue(3)"></ion-icon>
+        <ion-icon name="md-star" [ngClass]="{'active': activeStar >= 4}" (click)="setStarValue(4)"></ion-icon>
+        <ion-icon name="md-star" [ngClass]="{'active': activeStar == 5}" (click)="setStarValue(5)"></ion-icon>
+      </div>
+
+      <ion-textarea [(ngModel)]="feedback" placeholder="Provide your feedback."></ion-textarea>
+    </ion-card-content>
+  </ion-card>
+  <ion-button class="btn-submit ion-text-capitalize" mode="md" expand="full" shape="round" fill="solid"
+    (click)="giveRating()">
+    Submit
+  </ion-button>
+</ion-content>

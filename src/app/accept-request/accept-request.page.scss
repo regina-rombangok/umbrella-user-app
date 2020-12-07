@@ -1,0 +1,29 @@
+ion-content {
+  .check-symbol {
+    background: var(--ion-color-green);
+    width: fit-content;
+    border-radius: 50%;
+    height: 50px;
+    padding: 5px;
+    width: 50px;
+    margin: 10px auto;
+
+    ion-icon {
+      font-size: 40px;
+      color: var(--ion-color-white);
+    }
+  }
+
+  .title {
+    margin-bottom: 0px;
+  }
+
+  ion-button {
+    --color: var(--ion-color-darkYellow);
+    --color-activated: var(--ion-color-darkYellow);
+  }
+
+  .btn-div {
+    width: fit-content;
+  }
+}

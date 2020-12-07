@@ -1,0 +1,110 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button icon-only mode="md">
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            ORDER DETAIL
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="cart-list">
+        <div class="cetegory">
+            <h2>{{categoryData.name}}</h2>
+            <p>You may also need...</p>
+        </div>
+
+        <div class="list" *ngFor="let i of serviceList">
+            <div class="row">
+                <h2>
+                    {{i?.name}}
+                    <span *ngIf="i?.serviceType=='individual'">(Adults)</span>
+                    <span *ngIf="i?.serviceType=='student'">(Teens)</span>
+                    <span *ngIf="i?.serviceType=='kiddie'">(Kiddie)</span>
+                </h2>
+                <h2>
+                    {{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{i?.price}}
+                </h2>
+            </div>
+            <div class="btnContainer">
+                <div (click)="add(i)" class="addBtn" *ngIf="i?.qty == 0">
+                    <span>Add</span>
+                    <ion-icon name="add"></ion-icon>
+                </div>
+                <div class="addedBtn" *ngIf="i?.qty != 0">
+                    <div (click)="remove(i)">
+                        <ion-icon src="../../assets/img/remove.svg"></ion-icon>
+                    </div>
+                    <div class="qty">{{i?.qty}}</div>
+                    <div (click)="add(i)">
+                        <ion-icon src="../../assets/img/add.svg"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-fix">
+        <ion-item class="total-item" lines="none">
+            <ion-label>
+                <p>{{serviceList.length}} Treatments</p>
+            </ion-label>
+            <p slot="end">{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{cartTotal}}</p>
+        </ion-item>
+        <ion-item class="total-item" lines="none" *ngIf="applyCoupon==false">
+            <ion-label>
+                <p>Apply Coupon</p>
+            </ion-label>
+            <p slot="end">
+                <ion-button mode="md" fill="clear" class="ion-float-right ion-text-capitalize btn-apply"
+                    (click)="applyPromo()">
+                    Apply
+                </ion-button>
+            </p>
+        </ion-item>
+        <ion-item class="discount-item" lines="none" *ngIf="applyCoupon">
+            <ion-label>
+                <p>Discount <span class="ion-float-right">-
+                        {{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }}
+                        {{discountAmount}}</span></p>
+                <p>Final Total <span
+                        class="ion-float-right">{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }}
+                        {{finalAmount}}</span></p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="address-item" lines="none">
+            <ion-label>
+                <p>Select Payment Mode
+                    <ion-button mode="md" fill="clear" class="ion-float-right ion-text-capitalize btn-change"
+                        (click)="openPaymentMethod()">
+                        Change
+                    </ion-button>
+                </p>
+                <p class="address-text">
+                    {{activePaymentMode}}
+                </p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="address-item" lines="none">
+            <ion-label>
+                <p>Service Address
+                    <ion-button mode="md" fill="clear" class="ion-float-right ion-text-capitalize btn-change"
+                        (click)="changeLocation()">
+                        Change
+                    </ion-button>
+                </p>
+                <p class="address-text" text-wrap>
+                    <ion-icon name="md-checkmark-circle"></ion-icon>
+                    {{this.selectedAddress.address.main}} , {{this.selectedAddress.address.sub}}
+                </p>
+            </ion-label>
+        </ion-item>
+    </div>
+</ion-content>
+
+<ion-footer (click)="doBooking()">
+    <h2>Book</h2>
+</ion-footer>

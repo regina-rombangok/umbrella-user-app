@@ -1,0 +1,124 @@
+ion-header {
+  .btn-back {
+    --color: var(--ion-color-darkYellow);
+  }
+}
+
+ion-content {
+  .employee-info-fix {
+    position: fixed;
+    z-index: 1;
+    background: var(--ion-color-white);
+    width: 100%;
+  }
+
+  ion-item {
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 5px;
+
+    ion-avatar {
+      width: 50px;
+      height: 50px;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    ion-label {
+      h2 {
+        font-family: 'tofini_medium';
+        font-size: 15px;
+      }
+    }
+  }
+
+  .btn-book {
+    font-family: 'tofini_regular';
+    --background: var(--ion-color-gradiant);
+    --background-activated: var(--ion-color-gradiant);
+    --padding-top: 3px;
+  }
+
+  .rating-bar {
+    width: fit-content;
+
+    ion-icon {
+      color: var(--ion-color-simpleDark);
+      margin-right: 3px;
+      font-size: 16px;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+
+    .active {
+      color: var(--ion-color-golden);
+    }
+  }
+
+  .segment {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    ion-button {
+      --padding-start: 0;
+      --padding-end: 0;
+      height: 30px;
+      font-size: 12px;
+      width: 135px;
+      font-family: 'tofini_medium';
+      margin-bottom: 12px;
+      --background-activated: transparent;
+      --color-activated: var(--ion-color-darkYellow);
+    }
+
+    .active {
+      color: var(--ion-color-darkYellow);
+      --border-color: var(--ion-color-darkYellow);
+    }
+
+    .deactive {
+      color: var(--ion-segment-color);
+      --border-color: var(--ion-segment-color);
+    }
+  }
+
+  .detail-div {
+    position: relative;
+    top: 110px;
+
+    .gallery-section {
+      padding: 5px;
+
+      .image-div {
+        img {
+          height: 21.2vh;
+          border-radius: 10px;
+          width: 100%;
+        }
+      }
+    }
+
+    .review-section {
+      ion-item {
+        --background: var(--ion-input-back);
+        margin: 8px;
+        box-shadow: 0px 1px 3px -1px var(--ion-color-simpleDark);
+
+        h2 {
+          font-family: 'tofini_medium';
+          margin-bottom: 0px;
+        }
+
+        p {
+          font-family: 'tofini_regular';
+        }
+      }
+    }
+  }
+}

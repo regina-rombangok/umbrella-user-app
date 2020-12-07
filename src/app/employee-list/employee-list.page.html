@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button icon-only class="btn-back">
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title text-center></ion-title>
+        <ion-buttons slot="end">
+            <ion-button icon-only class="btn-location" id="step10" [ngClass]="{'active': activeType=='list'}"
+                (click)="activeType='list'">
+                <ion-icon name="ios-list"></ion-icon>
+            </ion-button>
+            <ion-button icon-only class="btn-location" id="step11" [ngClass]="{'active': activeType=='map'}"
+                (click)="activeType='map';getCurrentLocation()">
+                <ion-icon name="ios-pin"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div [hidden]="activeType !='list' ">
+        <p class="ion-text-center" *ngIf="!employeeList || employeeList.length ==0">Freelancer not available</p>
+        <div class="list-section">
+            <ion-item *ngFor="let employee of employeeList" mode="md" lines="full" (click)="viewDetail(employee.id)">
+                <ion-avatar slot="start">
+                    <img src="../../assets/img/starter/icon.png" [style.display]="employee.loaded ? 'none' : 'unset'">
+                    <img [src]="employee?.image" [style.opacity]="employee.loaded ? 1 : 0"
+                        (load)="employee.loaded = true">
+                </ion-avatar>
+                <ion-label>
+                    <h2>{{employee?.name}} {{employee?.surname}}</h2>
+                </ion-label>
+                <div slot="end">
+                    <p class="ion-no-margin ion-text-right">
+                        <span class="star-count">{{employee.everageStart}}</span>
+                        <ion-icon name="md-star" class="star-icon"></ion-icon>
+                        <span class="review-length">({{employee.totalReview}})</span>
+                    </p>
+                    <p class="ion-no-margin ion-text-right km-label">{{employee.distance}} km away</p>
+                </div>
+            </ion-item>
+        </div>
+    </div>
+    <div class="map-section" [hidden]="activeType !='map'">
+        <div #map id="map" style="height: 100%;width: 100%"></div>
+        <div class="employee-detail" *ngIf="showDetail">
+            <ion-item mode="md" lines="none">
+                <ion-avatar slot="start">
+                    <img src="https://via.placeholder.com/50x50" [style.display]="singleInfo.loaded ? 'none' : 'unset'">
+                    <img [src]="singleInfo?.image" [style.opacity]="singleInfo.loaded ? 1 : 0"
+                        (load)="singleInfo.loaded = true">
+                </ion-avatar>
+                <ion-label>
+                    <h2>{{singleInfo?.surname}} {{singleInfo?.name}}</h2>
+                    <p class="ion-no-margin km-label">{{singleInfo?.distance}} km away</p>
+                    <p class="ion-no-margin">
+                        <span class="star-count">{{singleInfo.everageStart}}</span>
+                        <ion-icon name="md-star" class="star-icon"></ion-icon>
+                        <span class="review-length">({{singleInfo.totalReview}})</span>
+                    </p>
+                </ion-label>
+                <div slot="end">
+                    <ion-button mode="md" size="small" class="ion-text-capitalize btn-more"
+                        (click)="viewDetail(singleInfo.id)">
+                        More Info</ion-button>
+                </div>
+            </ion-item>
+            <ion-button mode="md" size="small" expand="full" fill="clear" class="btn-hide" (click)="showDetail=false">
+                <ion-icon name="ios-arrow-down"></ion-icon>
+            </ion-button>
+        </div>
+    </div>
+</ion-content>

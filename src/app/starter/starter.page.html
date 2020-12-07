@@ -1,0 +1,22 @@
+<ion-content>
+  <div class="main-container">
+    <div class="bottom-container">
+      <div class="logo-section">
+        <img src="../../assets/img/starter/icon.png" alt="">
+      </div>
+      <h2 class="title">BOOK, TRACE AND GET PAMPERED</h2>
+
+      <div uk-scrollspy="target: > ion-button; cls: uk-animation-fade; delay: 300">
+        <ion-button (click)="signUpEmail()" uk-scrollspy-class="uk-animation-slide-left" class="btn-social-login email"
+          mode="md" expand="full" shape="round" fill="solid">
+          <img src="../../assets/starter/envelope.svg" alt="">
+          Sign up with&nbsp;<strong>Email</strong>
+        </ion-button>
+      </div>
+
+      <p (click)="signIn()" class="ion-text-center">
+        Already have an account? <a class="btn-signIn">Sign in</a>
+      </p>
+    </div>
+  </div>
+</ion-content>

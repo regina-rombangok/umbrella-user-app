@@ -1,0 +1,85 @@
+ion-header {
+  ion-button {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --ripple-color: var(--ion-color-white);
+    margin-left: 15px;
+    ion-icon {
+      width: 23.74px;
+      height: 20px;
+    }
+  }
+}
+ion-content {
+  --padding-end: 24px;
+  --padding-start: 24px;
+  .title {
+    font-family: 'tofini_bold';
+    font-size: 30px;
+    margin-bottom: 23px;
+  }
+  .description {
+    color: var(--ion-color-lightDark);
+    font-size: 15px;
+    font-family: 'tofini_regular';
+    margin-bottom: 0px;
+    line-height: 20px;
+  }
+  .otp-input-div {
+    display: inline-flex;
+    transform: translateX(-50%);
+    left: 50%;
+    position: relative;
+    margin-top: 56px;
+    ion-input {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--ion-input-back);
+      margin-right: 8px;
+      text-align: center;
+      --padding-start: 0px;
+      font-size: 22px;
+      font-family: 'tofini_medium';
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+    .otp-fill {
+      background: var(--ion-color-darkYellow);
+      color: var(--ion-color-white);
+    }
+  }
+  .timer-text {
+    font-size: 13px;
+    font-family: 'tofini_regular';
+    color: var(--ion-color-lightDark);
+    margin-top: 20px;
+  }
+  .social-link {
+    font-size: 14px;
+    font-family: 'tofini_regular';
+    color: var(--ion-color-lightGray);
+    margin-top: 61px;
+    margin-bottom: 0px;
+  }
+  .btn-resend {
+    font-family: 'tofini_regular';
+    text-transform: inherit;
+    font-size: 14px;
+    --color: var(--ion-color-darkYellow);
+    --color-activated: var(--ion-color-darkYellow);
+    --ripple-color: var(--ion-color-white);
+    margin: 0px;
+  }
+  .btn-continue {
+    --color: var(--ion-color-white);
+    height: 44px;
+    margin: 21px 8px 0px 8px;
+    font-size: 15px;
+    --box-shadow: none;
+    font-family: 'tofini_regular';
+    --background: var(--ion-color-gradiant);
+    text-transform: inherit;
+  }
+}

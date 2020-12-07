@@ -1,0 +1,44 @@
+<ion-content>
+
+  <img class="imgPlaceholder" src="../../assets/signin/47768.svg">
+
+  <form #f="ngForm">
+    <ion-input name="userName" required [(ngModel)]="data.name" placeholder="Name" type="text"></ion-input>
+
+    <ion-input name="userName" required [(ngModel)]="data.surname" placeholder="Surname" type="text"></ion-input>
+
+    <ion-input placeholder="Email address" required [(ngModel)]="data.email" name="email" type="text"></ion-input>
+
+    <ion-input placeholder="Address" required name="address" type="text" [(ngModel)]="data.address"
+      (ionInput)="autoAddress($event.target.value)"></ion-input>
+    <div *ngIf="autocompleteItems.length > 0">
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="chooseItem(item)">
+        {{ item.description }}
+      </ion-item>
+    </div>
+
+    <ion-input placeholder="Room number" required [(ngModel)]="data.roomNo" name="roomNo" type="text"></ion-input>
+
+    <ion-datetime class="date_picker" required [(ngModel)]="data.age" name="dateOfBirth" placeholder="Date of Birth"
+      displayFormat="YYYY-MM-DD"></ion-datetime>
+
+    <!-- <ion-input placeholder="Password" required [(ngModel)]="data.password" name="password" type="password"></ion-input> -->
+
+    <ion-input class="last-input" placeholder="Mobile number" required [(ngModel)]="data.mobile_no" name="mobile"
+      type="text"></ion-input>
+
+    <div id="recaptcha-container"></div>
+
+    <ion-button class="btn-SignUp" mode="md" expand="full" shape="round" fill="solid" (click)="signUp()">
+      Sign up
+    </ion-button>
+    <!--  [disabled]="!f.valid" -->
+  </form>
+  <p class="terms-text ion-text-center">By continuing <span class="light-text">Sign up</span> you agree to the following
+    <br> <a class="light-text">Terms &
+      Conditions</a>
+    without
+    reservation.
+  </p>
+  <p class="ion-text-center account-text">Already have an account? <a (click)="signIn()"> Sign in</a></p>
+</ion-content>

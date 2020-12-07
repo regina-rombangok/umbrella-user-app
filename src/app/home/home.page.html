@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button id="step1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>
+      Home
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="none" icon-only>
+        <ion-icon src="../../assets/img/home.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="list">
+    <p class="ion-text-center" *ngIf="(categoryList$ | async)?.length == 0"> No data</p>
+    <div class="item" id="step2" *ngFor="let category of (categoryList$ | async)" (click)="selectCategory(category)">
+      <img src="../../assets/img/starter/icon.png" [style.display]="category.loaded ? 'none' : 'unset'">
+      <img [src]="category?.image" [style.opacity]="category.loaded ? 1 : 0" (load)="category.loaded = true">
+      <div>
+        <h3>{{category?.name}}</h3>
+      </div>
+    </div>
+  </div>
+</ion-content>

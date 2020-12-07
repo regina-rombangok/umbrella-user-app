@@ -1,0 +1,48 @@
+ion-content {
+  .btn-close {
+    font-size: 20px;
+    --color: var(--ion-color-darkYellow);
+    --color-activated: var(--ion-color-darkYellow);
+    --padding-start: 0px;
+    --padding-end: 0px;
+    margin: 0px 3px;
+    float: right;
+  }
+
+  .title {
+    margin-top: 40px;
+  }
+
+  ion-item {
+    margin: 25px 20px 0px;
+    border: 1px solid var(--ion-border-color);
+    border-radius: 30px;
+    height: 45px;
+
+    ion-input {
+      --padding-top: 5px;
+      text-align: center;
+      font-family: 'tofini_regular';
+      font-size: 18px;
+    }
+  }
+
+  .err-label {
+    margin-top: 0px;
+    color: red;
+    font-family: 'tofini_regular';
+    margin-bottom: 0px;
+    font-size: 14px;
+  }
+
+  .btn-apply {
+    --color: var(--ion-color-white);
+    height: 44px;
+    margin: 26px 20px 0px 20px;
+    font-size: 15px;
+    --box-shadow: none;
+    font-family: 'tofini_regular';
+    --background: var(--ion-color-gradiant);
+    text-transform: inherit;
+  }
+}

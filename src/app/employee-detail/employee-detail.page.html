@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button icon-only class="btn-back">
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Employee Detail</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="employee-info-fix">
+        <ion-item lines="none">
+            <ion-avatar slot="start">
+                <img [src]="employeeData?.image ? employeeData?.image : 'http://placehold.it/50x50'" alt=""
+                    onerror="this.onerror=null;this.src='http://placehold.it/50x50'">
+            </ion-avatar>
+            <ion-label>
+                <h2>{{employeeData?.name}} {{employeeData?.surname}} </h2>
+                <div class="rating-bar">
+                    <ion-icon name="md-star" [ngClass]="{'active': employeeData?.everageStart >=1}"></ion-icon>
+                    <ion-icon name="md-star" [ngClass]="{'active': employeeData?.everageStart >=2}"></ion-icon>
+                    <ion-icon name="md-star" [ngClass]="{'active': employeeData?.everageStart >=3}"></ion-icon>
+                    <ion-icon name="md-star" [ngClass]="{'active': employeeData?.everageStart >=4}"></ion-icon>
+                    <ion-icon name="md-star" [ngClass]="{'active': employeeData?.everageStart ==5}"></ion-icon>
+                </div>
+            </ion-label>
+            <ion-button class="btn-book" slot="end" mode="md" (click)="doBook()">
+                Book
+            </ion-button>
+        </ion-item>
+        <div class="segment">
+            <ion-button
+                [class]="segmentState == 1 ? 'active ios button button-block button-round button-outline ion-activatable ion-focusable hydrated' : 'deactive ios button button-block button-round button-outline ion-activatable ion-focusable hydrated'"
+                (click)="segmentState = 1" shape="round" expand="block" mode="ios" fill="outline">
+                Gallery
+            </ion-button>
+            <ion-button
+                [class]="segmentState == 2 ? 'active ios button button-block button-round button-outline ion-activatable ion-focusable hydrated' : 'deactive ios button button-block button-round button-outline ion-activatable ion-focusable hydrated'"
+                (click)="segmentState = 2" shape="round" expand="block" mode="ios" fill="outline">
+                Reviews
+            </ion-button>
+        </div>
+    </div>
+    <div class="detail-div">
+        <div *ngIf="segmentState == 1" class="gallery-section">
+            <p class="ion-text-center" *ngIf="employeeData?.gallery?.length==0">No data found.</p>
+            <ion-row>
+                <ion-col size="6" *ngFor="let gallery of employeeData?.gallery;let i=index">
+                    <div class="image-div">
+                        <img (click)="openPreview(employeeData?.gallery,i)" *ngIf="gallery?.img"
+                            [src]="gallery?.img ? gallery?.img :'http://placehold.it/100x100'" alt="image">
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div *ngIf="segmentState == 2" class="review-section">
+            <p class="ion-text-center" *ngIf="employeeData?.reviewData?.length==0">No data found.</p>
+            <ion-item lines="none" *ngFor="let rat of employeeData?.reviewData">
+                <ion-label>
+                    <h2>{{rat.username}}
+                        <div class="rating-bar ion-float-right">
+                            <ion-icon name="md-star" [ngClass]="{'active': rat?.star >=1}"></ion-icon>
+                            <ion-icon name="md-star" [ngClass]="{'active': rat?.star >=2}"></ion-icon>
+                            <ion-icon name="md-star" [ngClass]="{'active': rat?.star >=3}"></ion-icon>
+                            <ion-icon name="md-star" [ngClass]="{'active': rat?.star >=4}"></ion-icon>
+                            <ion-icon name="md-star" [ngClass]="{'active': rat?.star ==5}"></ion-icon>
+                        </div>
+                    </h2>
+                    <p *ngIf="rat?.comment">{{rat?.comment}}</p>
+                </ion-label>
+            </ion-item>
+        </div>
+    </div>
+
+</ion-content>

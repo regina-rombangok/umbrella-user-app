@@ -1,0 +1,13 @@
+<ion-content>
+  <ion-button mode="md" fill="clear" class="btn-close" (click)="close()">
+    <ion-icon name="md-close"></ion-icon>
+  </ion-button>
+  <h3 class="title ion-text-center">Enter Coupon Code</h3>
+  <ion-item lines="none">
+    <ion-input mode="md" [(ngModel)]="couponCode"></ion-input>
+  </ion-item>
+  <p class="ion-text-center err-label" *ngIf="this.errMsg">{{this.errMsg}}</p>
+  <ion-button mode="md" shape="round" expand="block" fill="solid" class="btn-apply" (click)="doApplyCode()">
+    Apply
+  </ion-button>
+</ion-content>

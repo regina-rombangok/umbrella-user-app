@@ -1,0 +1,133 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button icon-only>
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Booking# {{requestData?.orderId}}
+        </ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="profile">
+        <div class="content" padding>
+            <div class="div-1">
+                <div>
+                    <ion-avatar item-start>
+                        <img [src]="requestData.freelancerData?.image ? requestData.freelancerData?.image : 'http://placehold.it/60x60'"
+                            onerror="this.onerror=null;this.src='http://placehold.it/60x60'">
+                    </ion-avatar>
+
+                </div>
+                <div class="contact">
+                    <ion-item>
+                        <ion-label>
+                            <p class="small-label">Mobile Number</p>
+                            <p class="call-no">{{requestData.freelancerData?.mobile_no}}</p>
+                        </ion-label>
+                        <a href="tel:{{requestData.freelancerData?.mobile_no}}">
+                            <ion-icon name="ios-call" class="call-icon"></ion-icon>
+                        </a>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <p class="small-label">Email</p>
+                            <p class="call-no">{{requestData.freelancerData?.email}}</p>
+                        </ion-label>
+                        <a (click)="mailto(requestData.freelancerData?.email)">
+                            <ion-icon name="ios-mail" class="mail-icon"></ion-icon>
+                        </a>
+                    </ion-item>
+                </div>
+            </div>
+            <h2 class="employee-name"><strong class="text-ellipsis">{{requestData.freelancerData?.surname}}
+                    {{requestData.freelancerData?.name}}</strong></h2>
+            <div class=" details">
+                <p class=""><small>Job Task</small><span class="text-ellipsis"
+                        *ngFor="let service of requestData.services;let i=index">{{service.name}}
+                        ({{service.serviceType}})
+                        <span *ngIf="requestData.services.length != i+1">, </span></span>
+                </p>
+                <ion-row>
+                    <ion-col size="6">
+                        <p class=""><small>BooKing Date</small><span class="text-ellipsis">
+                                {{requestData?.timeLine?.requestedDate?.toDate() | date:'medium'}} </span>
+                        </p>
+                    </ion-col>
+                    <ion-col size="3">
+                        <p class="job-fess" *ngIf="requestData?.couponData != ''"><small>Discount</small><span
+                                class="text-ellipsis">{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }}
+                                {{requestData?.discount}}</span> </p>
+                    </ion-col>
+                    <ion-col size="3">
+                        <p class="job-fess"><small>Fees</small><span
+                                class="text-ellipsis">{{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }}
+                                {{requestData?.finalTotal}}</span> </p>
+                    </ion-col>
+                </ion-row>
+                <p class="job-fess"><small>Address</small><span class="">{{requestData?.address}}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="job-status">
+        <h2 class="ion-text-center">JOB PROGRESS</h2>
+        <!-- activedone active disable-->
+        <div class="list" no-lines>
+            <div [class]="requestData?.requestStatus >=1 ? 'item active' : 'item disable'">
+                <span item-start class="circle"></span>
+                <div class="text">
+                    <h4 class="text-ellipsis">Job Accepted
+                        <small>Job Accepted
+                            {{requestData?.timeLine?.jobAcceptedDate?.toDate() | date:'medium' }}</small>
+                    </h4>
+                </div>
+            </div>
+            <div [class]="requestData?.requestStatus>=4 ? 'item active' : 'item disable'">
+                <span item-start class="circle"></span>
+                <div class="text">
+                    <h4 class="text-ellipsis">Job On the Way
+                        <small>Job On the Way
+                            {{requestData?.timeLine?.onTheWayDate?.toDate() | date:'medium' }}</small>
+                    </h4>
+                </div>
+            </div>
+            <div [class]="requestData?.requestStatus>=5 ? 'item active' : 'item disable'">
+                <span item-start class="circle"></span>
+                <div class="text">
+                    <h4 class="text-ellipsis">Job Arrive
+                        <small>Job Arrive
+                            {{requestData?.timeLine?.jobArriveDate?.toDate() | date:'medium' }}</small>
+                    </h4>
+                </div>
+            </div>
+            <div [class]="requestData?.requestStatus>=6 ? 'item active' : 'item disable'">
+                <span item-start class="circle"></span>
+                <div class="text">
+                    <h4 class="text-ellipsis">Job Started
+                        <small>Job Started
+                            {{requestData?.timeLine?.jobStartDate?.toDate() | date:'medium' }}</small>
+                    </h4>
+                </div>
+            </div>
+            <div [class]="requestData?.requestStatus>=7 ? 'item active' : 'item disable'">
+                <span item-start class="circle"></span>
+                <div class="text">
+                    <h4 class="text-ellipsis">Job Completed
+                        <small>Job Completed on
+                            {{requestData?.timeLine?.jobCompleteDate?.toDate() | date:'medium' }}</small>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer *ngIf="requestData.requestStatus==4">
+    <ion-button class="btn-track ion-text-capitalize" mode="md" expand="full" fill="clear" (click)="tarckLocation()">
+        Track Freelance Location
+    </ion-button>
+</ion-footer>

@@ -1,0 +1,87 @@
+ion-content {
+  --background: var(--ion-color-white-light);
+  .total-section {
+    background: var(--ion-color-white);
+    padding: 10px 16px;
+    .fare-label {
+      font-family: 'tofini_regular';
+    }
+    .amount-label {
+      font-family: 'tofini_regular';
+      margin-top: 0px;
+      font-size: 30px;
+    }
+    .date-label {
+      font-family: 'tofini_regular';
+      font-size: 13px;
+      color: var(--ion-color-simpleDark);
+    }
+    .date {
+      font-family: 'tofini_regular';
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  }
+  .beaty-servcie-title {
+    font-family: 'tofini_regular';
+    font-size: 14px;
+  }
+  ion-card {
+    --background: var(--ion-color-white);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    ion-card-content {
+      color: var(--ion-color-black);
+      font-family: 'tofini_regular';
+      .fare-title {
+        font-family: 'tofini_medium';
+      }
+      .arrow {
+        font-size: 21px;
+        float: right;
+        margin-top: -3px;
+      }
+      .services {
+        margin-top: 10px;
+        .service-list {
+          font-family: 'tofini_regular';
+          border-bottom: 1px solid var(--ion-border-color);
+          padding: 4px 0px;
+        }
+      }
+      .how-was {
+        font-family: 'tofini_regular';
+      }
+      .rating-bar {
+        width: fit-content;
+        ion-icon {
+          color: var(--ion-color-simpleDark);
+          margin-right: 3px;
+          font-size: 35px;
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+        .active {
+          color: var(--ion-color-golden);
+        }
+      }
+      ion-textarea {
+        font-family: 'tofini_regular';
+        margin-top: 0px;
+        --padding-bottom: 0px;
+        --padding-start: 5px;
+      }
+    }
+  }
+
+  .btn-submit {
+    --color: var(--ion-color-white);
+    height: 44px;
+    margin: 4vh 8px 0px 8px;
+    font-size: 16px;
+    --box-shadow: none;
+    font-family: 'tofini_regular';
+    --background: var(--ion-color-gradiant);
+  }
+}

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goToHome()" icon-only>
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>My On Going Jobs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p *ngIf="(jobList$ | async)?.length == 0" class="ion-text-center">No data found.</p>
+  <ion-card *ngFor="let job of (jobList$ | async)">
+    <ion-card-header>
+      <ion-card-subtitle>Booking# <span class="order-id">{{job?.orderId}}</span></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="employee-info">
+        <div class="image-section">
+          <div class="profile-image">
+            <img [src]="(job.freelancerData | async)?.image" alt=""
+              onerror="this.onerror=null;this.src='http://placehold.it/50x50'">
+          </div>
+        </div>
+        <div class="detail-section">
+          <p class="date-label">{{job.timeLine.requestedDate.toDate() | date:'medium'}}</p>
+          <p class="employee-label">{{(job.freelancerData | async)?.surname}} {{(job.freelancerData | async)?.name}}
+          </p>
+          <p class="address-label">{{job.address}}</p>
+          <div class="rating-bar">
+            <ion-icon name="md-star" [ngClass]="{'active': job.everageStart >= 1}"></ion-icon>
+            <ion-icon name="md-star" [ngClass]="{'active': job.everageStart >= 2}"></ion-icon>
+            <ion-icon name="md-star" [ngClass]="{'active': job.everageStart >= 3}"></ion-icon>
+            <ion-icon name="md-star" [ngClass]="{'active': job.everageStart >= 4}"></ion-icon>
+            <ion-icon name="md-star" [ngClass]="{'active': job.everageStart == 5}"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <ion-button class="btn-detail" mode="md" expand="block" fill="solid" (click)="viewDetail(job.id)">
+        View Details
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

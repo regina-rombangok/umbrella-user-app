@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "707187421943",
+    "firebase_url": "https://avad-service-application.firebaseio.com",
+    "project_id": "avad-service-application",
+    "storage_bucket": "avad-service-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707187421943:android:31763ddf7877ccbc5659f2",
+        "android_client_info": {
+          "package_name": "za.co.umbrella.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707187421943-s6pqpns8prglkstdilbj0rh1b2len15a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMDt4NFAGHe640tUOGfTTYcQLBIsEEX6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707187421943-s6pqpns8prglkstdilbj0rh1b2len15a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

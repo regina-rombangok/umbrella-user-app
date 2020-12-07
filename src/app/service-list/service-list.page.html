@@ -1,0 +1,120 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" id="step4">
+            <ion-button icon-only class="btn-back">
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title text-center>
+            Services
+        </ion-title>
+        <ion-buttons slot="end" id="step5">
+            <ion-button icon-only class="btn-location" (click)="chnageAddress()">
+                <ion-icon name="md-locate"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <div class="segment">
+        <ion-button id="step6"
+            [class]="segmentState == 1 ? 'active ios button button-block button-round button-outline ion-activatable ion-focusable hydrated' : 'deactive ios button button-block button-round button-outline ion-activatable ion-focusable hydrated'"
+            (click)="segmentState = 1" shape="round" expand="block" mode="ios" fill="outline">
+            Adults
+        </ion-button>
+        <ion-button id="step7"
+            [class]="segmentState == 2 ? 'active ios button button-block button-round button-outline ion-activatable ion-focusable hydrated' : 'deactive ios button button-block button-round button-outline ion-activatable ion-focusable hydrated'"
+            (click)="segmentState = 2" shape="round" expand="block" mode="ios" fill="outline">
+            Kiddie
+        </ion-button>
+        <ion-button id="step8"
+            [class]="segmentState == 3 ? 'active ios button button-block button-round button-outline ion-activatable ion-focusable hydrated' : 'deactive ios button button-block button-round button-outline ion-activatable ion-focusable hydrated'"
+            (click)="segmentState = 3" shape="round" expand="block" mode="ios" fill="outline">
+            Teens
+        </ion-button>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div class="cetegory">
+        <h2>{{categoryData.name}}</h2>
+    </div>
+
+
+    <div *ngIf="segmentState ==1">
+        <p class="ion-text-center" *ngIf="isData.adults==false">data not found.</p>
+        <ng-container *ngFor="let service of serviceList">
+            <div class="list" *ngIf="service.serviceType=='individual'">
+                <div class="image-div">
+                    <img src="../../assets/img/starter/icon.png" [style.display]="service.loaded ? 'none' : 'unset'">
+                    <img ionImgViewer [src]="service?.image" [style.opacity]="service.loaded ? 1 : 0"
+                        (load)="service.loaded = true">
+                </div>
+                <div class="row" (click)="serviceToggle(service)">
+                    <h2>
+                        {{service?.name}}
+                    </h2>
+                    <h2>
+                        {{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{service?.price}}
+                    </h2>
+                </div>
+                <div class="btnContainer" (click)="serviceToggle(service)">
+                    <ion-checkbox mode="md" [(ngModel)]="service.checked" (click)="serviceToggle(service)">
+                    </ion-checkbox>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div *ngIf="segmentState ==2">
+        <p class="ion-text-center" *ngIf="isData.kiddie==false">data not found.</p>
+        <ng-container *ngFor="let service of serviceList">
+            <div class="list" *ngIf="service.serviceType=='kiddie'">
+                <div class="image-div">
+                    <img src="../../assets/img/starter/icon.png" [style.display]="service.loaded ? 'none' : 'unset'">
+                    <img ionImgViewer [src]="service?.image" [style.opacity]="service.loaded ? 1 : 0"
+                        (load)="service.loaded = true">
+                </div>
+
+                <div class=" row" (click)="serviceToggle(service)">
+                    <h2>
+                        {{service?.name}}
+                    </h2>
+                    <h2>
+                        {{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{service?.price}}
+                    </h2>
+                </div>
+                <div class="btnContainer" (click)="serviceToggle(service)">
+                    <ion-checkbox mode="md" [(ngModel)]="service.checked" (click)="serviceToggle(service)">
+                    </ion-checkbox>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div *ngIf="segmentState ==3">
+        <p class="ion-text-center" *ngIf="isData.teens==false">data not found.</p>
+        <ng-container *ngFor="let service of serviceList">
+            <div class="list" *ngIf="service.serviceType=='student'">
+
+                <div class="image-div">
+                    <img src="../../assets/img/starter/icon.png" [style.display]="service.loaded ? 'none' : 'unset'">
+                    <img ionImgViewer [src]="service?.image" [style.opacity]="service.loaded ? 1 : 0"
+                        (load)="service.loaded = true">
+                </div>
+                <div class="row" (click)="serviceToggle(service)">
+                    <h2>
+                        {{service?.name}}
+                    </h2>
+                    <h2>
+                        {{0 | currency:currenctyType:'symbol-narrow':'.2-2' | slice :0:1 }} {{service?.price}}
+                    </h2>
+                </div>
+                <div class="btnContainer" (click)="serviceToggle(service)">
+                    <ion-checkbox mode="md" [(ngModel)]="service.checked" (click)="serviceToggle(service)">
+                    </ion-checkbox>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ion-content>
+
+<ion-footer (click)="doNext()" id=step9>
+    <h2>Next</h2>
+</ion-footer>

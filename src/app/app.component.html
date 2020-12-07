@@ -1,0 +1,36 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu type="overlay">
+      <ion-content>
+        <ion-avatar>
+          <img src="{{users?.image}}" onerror="this.onerror=null;this.src='http://placehold.it/100x100';" />
+        </ion-avatar>
+        <h2>{{users?.name}} {{users?.surname}}</h2>
+        <p>{{users?.email}}</p>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <div [routerDirection]="'forward'" [routerLink]="[p.url]" class="rowStyle">
+              <div>
+                <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              </div>
+              <div>
+                {{p.title}}
+              </div>
+            </div>
+          </ion-menu-toggle>
+          <ion-menu-toggle (click)="logOut()">
+            <div class="rowStyle">
+              <div>
+                <ion-icon slot="start" name="log-out"></ion-icon>
+              </div>
+              <div>
+                Logout
+              </div>
+            </div>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

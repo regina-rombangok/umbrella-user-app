@@ -1,0 +1,72 @@
+ion-content {
+  ion-card {
+    ion-card-subtitle {
+      font-family: 'tofini_medium';
+      color: var(--ion-color-black);
+      .order-id {
+        color: var(--ion-color-darkYellow);
+      }
+    }
+    ion-card-content {
+      .employee-info {
+        display: flex;
+
+        .image-section {
+          width: fit-content;
+          padding-right: 16px;
+          margin: auto 0px;
+          .profile-image {
+            height: 56px;
+            width: 56px;
+            border-radius: 50%;
+            border: 1px solid var(--ion-color-darkYellow);
+            img {
+              border-radius: 50%;
+              height: 100%;
+            }
+          }
+        }
+        .detail-section {
+          .date-label {
+            font-family: 'tofini_regular';
+          }
+          .employee-label {
+            font-family: 'tofini_medium';
+            color: var(--ion-color-black);
+            font-size: 15px;
+          }
+          .address-label {
+            font-family: 'tofini_regular';
+            font-size: 13px;
+            color: var(--ion-color-MiddleGray);
+            line-height: 1.3;
+          }
+          .rating-bar {
+            width: fit-content;
+            ion-icon {
+              color: var(--ion-color-simpleDark);
+              margin-right: 3px;
+              font-size: 16px;
+              &:last-child {
+                margin-right: 0px;
+              }
+            }
+            .active {
+              color: var(--ion-color-golden);
+            }
+          }
+        }
+      }
+      .btn-detail {
+        --color: var(--ion-color-white);
+        height: 40px;
+        font-size: 15px;
+        margin: 5px 0px 0px;
+        --box-shadow: none;
+        font-family: 'tofini_regular';
+        --background: var(--ion-color-gradiant);
+        text-transform: inherit;
+      }
+    }
+  }
+}

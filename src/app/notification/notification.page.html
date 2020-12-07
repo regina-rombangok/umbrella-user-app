@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button icon-only>
+                <ion-back-button text="" icon="ios-arrow-back"></ion-back-button>
+
+            </ion-button>
+        </ion-buttons>
+        <ion-title text-center>
+            Notification
+        </ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p *ngIf="noti?.length == 0" class="ion-text-center">No data found.</p>
+    <ion-list lines="none">
+        <ion-item class='there' *ngFor="let item of noti">
+            <ion-avatar slot="start">
+                <img *ngIf="item?.data?.image" [src]='item?.data?.image' />
+            </ion-avatar>
+
+            <div class="noti_div">
+                <div no-margin class="taskStyle">
+                    {{item?.data?.surname}} {{item?.data?.name}}
+                </div>
+                <p class="ion-no-margin text-data">{{item?.title}}</p>
+                <ion-label>
+                    {{item?.dateTime.toDate() | timeAgo }}
+                </ion-label>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>
